@@ -15,9 +15,9 @@
 
 [x] Setup basic HTML interface with inputs, buttons, and table.
 
-[] Setup Express server on server.js
+[x] Setup Express server on server.js
 
-[] Setup PG on server.js
+[x] Setup PG on server.js
 
 [] Setup Express routes for GET, POST, DELETE, and PUT on server.js
 
