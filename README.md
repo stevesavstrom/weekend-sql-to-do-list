@@ -1,17 +1,17 @@
 # To Do
-[ ] Setup project folder structure
+[x] Setup project folder structure
 
-[ ] npm init -y, npm install express, npm install pg
+[] npm init -y, npm install express, npm install pg
 
-[ ] Source jQuery
+[x] Source jQuery
 
-[] Create database called weekend-to-do-app in Postico
+[x] Create database called weekend-to-do-app in Postico
 
-[] Database keys: ID, Task
+[x] Database keys: ID, Task, Status
 
-[] Setup HTML and source jQuery, CSS, Bootstrap
+[x] Setup HTML and source jQuery, CSS, Bootstrap
 
-[] Setup basic HTML interface with inputs, buttons, and table.
+[x] Setup basic HTML interface with inputs, buttons, and table.
 
 [] Setup Express server on server.js
 
