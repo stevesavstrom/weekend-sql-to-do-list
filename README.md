@@ -1,3 +1,21 @@
+# To Do
+- [] Setup project folder structure
+- [] npm init -y, npm install express, npm install pg
+- [] Source jQuery
+- [] Create database called weekend-to-do-app in Postico
+- [] Database keys: ID, Task
+- [] Setup HTML and source jQuery, CSS, Bootstrap
+- [] Setup basic HTML interface with inputs, buttons, and table.
+- [] Setup Express server on server.js
+- [] Setup PG on server.js
+- [] Setup Express routes for GET, POST, DELETE, and PUT on server.js
+- [] Setup AJAX responses on client.js
+--- This is good for now. Test server, localhost, etc. ---
+- []
+- []
+- []
+- []
+
 # Project Name
 
 [Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
