@@ -1,7 +1,9 @@
 # To Do
 [x] Setup project folder structure
 
-[] npm init -y, npm install express, npm install pg
+[x] npm init -y, npm install express, npm install pg
+
+[x] add START script to package.JSON
 
 [x] Source jQuery
 
