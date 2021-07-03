@@ -46,9 +46,14 @@ form {
 	margin-bottom: 1rem;
 }
 
-input {
+#taskInput {
 	height: 30px;
-	width: 500px;
+	width: 60%;
+}
+
+#statusInput {
+	height: 30px;
+	width: 20%;
 }
 
 button {
@@ -71,5 +76,5 @@ thead tr {
   }
   
 tr:nth-child(even) {
-	background-color: #E8DFC4;
+	background-color: #ececec;
   }

@@ -36,7 +36,7 @@ pool.on('error', () => {
 app.get('/tasks', (req, res) => {
     let taskList = `
     SELECT * FROM "tasks"
-    ORDER BY "title" ASC;
+    ORDER BY "id" ASC;
     `;
     pool.query(taskList)
         .then((result) => {
@@ -87,3 +87,23 @@ app.delete('/weekend-to-do-app/tasks/:id', (req, res) => {
         res.sendStatus(500);
       });
   });
+
+
+// PUT route to update status
+router.put('/weekend-to-do-app/tasks/:id', (req, res) => {
+    // get id from url (which is from html)
+    const taskId = req.params.id;
+    
+    let updateTask = `UPDATE tasks SET "status"=true WHERE id=$1;`;
+
+    pool.query(updateTask, [taskId])
+    .then(dbResponse => {
+        console.log('Updated task with PUT', dbResponse);
+        res.sendStatus(202);
+    })
+    .catch(err => {
+        console.log('There was an error updating status', error);
+        res.sendStatus(500);
+    })
+});
+
