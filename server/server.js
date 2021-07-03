@@ -13,6 +13,7 @@ app.listen(PORT, () => {
     console.log('listening on port', PORT)
 });
 
+// PG setup
 const Pool = pg.Pool;
 const config = {
     database: 'weekend-to-do-app',
@@ -24,6 +25,7 @@ const config = {
 
 const pool = new Pool(config);
 
+// For testing/debugging
 pool.on('connect', () => {
     console.log('Postgresql connected');
 });
@@ -66,7 +68,7 @@ pool.query(taskList, [newTask.task])
         });
 });
 
-// DELETE route to delete tasks
+// DELETE route to delete tasks from database
 app.delete('/weekend-to-do-app/tasks/:id', (req, res) => {
     console.log('Request URL: ', req.url);
     console.log('Request route parameters: ', req.params);
@@ -89,9 +91,8 @@ app.delete('/weekend-to-do-app/tasks/:id', (req, res) => {
   });
 
 
-// PUT route to update status
+// PUT route to update task status in database
 app.put('/weekend-to-do-app/tasks/:id', (req, res) => {
-    // get id from url (which is from html)
     const taskId = req.params.id;
     
     let updateTask = `UPDATE tasks SET "status"='Complete' WHERE id=$1;`;

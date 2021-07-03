@@ -14,15 +14,9 @@ function onReady() {
 
     // Listener for the DELETE task click:
     $('#taskTableBody').on('click', '.delete-task-button', deleteTaskHandler);
+	// Listener for the PUT/Update status task click:
 	$('#taskTableBody').on('click', '.update-task-button', updateTaskHandler);
-
-	$('#taskTableBody').on('click', '.update-task-button', turnGreen);
-
 } // end onReady
-
-function turnGreen(){
-	$(this).css('background-color', 'pink');
-}
 
 function addTask() {
     // Get info to send to the server
@@ -65,7 +59,7 @@ function getTasks() {
 function renderTasks(listOfTasks) {
     // Empty previous data
     $('#taskTableBody').empty();
-    // Add all tasks to table
+    // Display tasks on table - status incomplete
     for (let item of listOfTasks) {
 		if(item.status === 'Incomplete'){
 			$('#taskTableBody').append(`
@@ -80,7 +74,8 @@ function renderTasks(listOfTasks) {
 				</td>
 			</tr>`
 		);
-	} else if (item.status === 'Complete'){
+	// Display tasks on table - status complete
+		} else if (item.status === 'Complete'){
 		$('#taskTableBody').append(`
 		<tr class = "complete-task-row">
 			<td>
@@ -92,10 +87,9 @@ function renderTasks(listOfTasks) {
 			<button class="delete-task-button" data-id=${item.id}><i class="fa fa-trash"></i></button>
 			</td>
 		</tr>`
-	);
+		);
 	}
-
-	}
+}
 } // end renderTasks
 
 function deleteTaskHandler() {
@@ -114,9 +108,13 @@ function deleteTask(taskId) {
       .catch((error) => {
         alert('There was a problem deleting that task.', error);
       });
-  }
+  } //end deleteTask
 
-  function updateTask(taskId){
+function updateTaskHandler(){
+	updateTask($(this).data('id'));
+  } // end updateTaskHandler
+
+function updateTask(taskId){
 	console.log('Task is ready to update');
 	$.ajax({
 	  method: 'PUT',
@@ -129,12 +127,7 @@ function deleteTask(taskId) {
 	.catch(error => {
 	  console.log(`Task status NOT updated`, error);
 	});
-  }
-
-// Update
-function updateTaskHandler(){
-	updateTask($(this).data('id'));
-  }
+  } // end updateTask
 
 
 
