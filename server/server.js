@@ -94,7 +94,7 @@ app.put('/weekend-to-do-app/tasks/:id', (req, res) => {
     // get id from url (which is from html)
     const taskId = req.params.id;
     
-    let updateTask = `UPDATE tasks SET "status"='Complete! 🙂' WHERE id=$1;`;
+    let updateTask = `UPDATE tasks SET "status"='Complete' WHERE id=$1;`;
 
     pool.query(updateTask, [taskId])
     .then(dbResponse => {

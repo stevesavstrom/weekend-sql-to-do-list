@@ -16,7 +16,13 @@ function onReady() {
     $('#taskTableBody').on('click', '.delete-task-button', deleteTaskHandler);
 	$('#taskTableBody').on('click', '.update-task-button', updateTaskHandler);
 
+	$('#taskTableBody').on('click', '.update-task-button', turnGreen);
+
 } // end onReady
+
+function turnGreen(){
+	$(this).css('background-color', 'pink');
+}
 
 function addTask() {
     // Get info to send to the server
@@ -61,17 +67,35 @@ function renderTasks(listOfTasks) {
     $('#taskTableBody').empty();
     // Add all tasks to table
     for (let item of listOfTasks) {
-        $('#taskTableBody').append(`
-                <tr>
-                    <td>${item.task}</td>
-                    <td>${item.status}</td>
-                    <td>
-                    <button class="delete-task-button" data-id=${item.id}><i class="fa fa-trash"></i></button>
-					<button class="update-task-button" data-id=${item.id}><i class="fa fa-check"></i></button>
-                    </td>
-                </tr>`
-            );
-    }
+		if(item.status === 'Incomplete'){
+			$('#taskTableBody').append(`
+			<tr>
+				<td>
+				<button type="submit" class="update-task-button" data-id=${item.id}><i class="fa fa-check"></i></button>
+				</td>
+				<td>${item.task}</td>
+				<td>${item.status}</td>
+				<td>
+				<button class="delete-task-button" data-id=${item.id}><i class="fa fa-trash"></i></button>
+				</td>
+			</tr>`
+		);
+	} else if (item.status === 'Complete'){
+		$('#taskTableBody').append(`
+		<tr class = "complete-task-row">
+			<td>
+			<button type="submit" class="complete-task-button" data-id=${item.id}><i class="fa fa-check"></i></button>
+			</td>
+			<td>${item.task}</td>
+			<td>${item.status}</td>
+			<td>
+			<button class="delete-task-button" data-id=${item.id}><i class="fa fa-trash"></i></button>
+			</td>
+		</tr>`
+	);
+	}
+
+	}
 } // end renderTasks
 
 function deleteTaskHandler() {
@@ -111,5 +135,6 @@ function deleteTask(taskId) {
 function updateTaskHandler(){
 	updateTask($(this).data('id'));
   }
+
 
 
