@@ -53,10 +53,10 @@ app.get('/tasks', (req, res) => {
 app.post('/tasks', (req, res) => {
     const newTask = req.body;
     const taskList = `
-    INSERT INTO tasks (task, status)
-    VALUES ($1, $2);
+    INSERT INTO tasks (task)
+    VALUES ($1);
     `;
-pool.query(taskList, [newTask.task, newTask.status])
+pool.query(taskList, [newTask.task])
         .then(dbResponse => {
             res.sendStatus(201);
         })
@@ -90,11 +90,11 @@ app.delete('/weekend-to-do-app/tasks/:id', (req, res) => {
 
 
 // PUT route to update status
-router.put('/weekend-to-do-app/tasks/:id', (req, res) => {
+app.put('/weekend-to-do-app/tasks/:id', (req, res) => {
     // get id from url (which is from html)
     const taskId = req.params.id;
     
-    let updateTask = `UPDATE tasks SET "status"=true WHERE id=$1;`;
+    let updateTask = `UPDATE tasks SET "status"='Complete! 🙂' WHERE id=$1;`;
 
     pool.query(updateTask, [taskId])
     .then(dbResponse => {

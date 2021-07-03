@@ -14,6 +14,7 @@ function onReady() {
 
     // Listener for the DELETE task click:
     $('#taskTableBody').on('click', '.delete-task-button', deleteTaskHandler);
+	$('#taskTableBody').on('click', '.update-task-button', updateTaskHandler);
 
 } // end onReady
 
@@ -65,7 +66,10 @@ function renderTasks(listOfTasks) {
                     <td>${item.task}</td>
                     <td>${item.status}</td>
                     <td>
-                    <button class="delete-task-button" data-id=${item.id}>Delete</button>
+                    <button class="delete-task-button" data-id=${item.id}><i class="fa fa-trash"></i></button>
+                    </td>
+					<td>
+                    <button class="update-task-button" data-id=${item.id}><i class="fa fa-check"></i></button>
                     </td>
                 </tr>`
             );
@@ -88,6 +92,26 @@ function deleteTask(taskId) {
       .catch((error) => {
         alert('There was a problem deleting that task.', error);
       });
+  }
+
+  function updateTask(taskId){
+	console.log('Task is ready to update');
+	$.ajax({
+	  method: 'PUT',
+	  url: `/weekend-to-do-app/tasks/${taskId}`
+	})
+	.then(response => {
+	  console.log(`Task status updated`, response);
+	  getTasks();
+	})
+	.catch(error => {
+	  console.log(`Task status NOT updated`, error);
+	});
+  }
+
+// Update
+function updateTaskHandler(){
+	updateTask($(this).data('id'));
   }
 
 

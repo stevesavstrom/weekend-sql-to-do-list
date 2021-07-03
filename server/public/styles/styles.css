@@ -59,6 +59,38 @@ form {
 button {
 	height: 34px;
 }
+
+.delete-task-button {
+	height: 40px;
+	width: 40px;
+	background-color:red;
+	border: none;
+	border-radius: 8px;
+	color: white;
+	padding: 12px 12px;
+	font-size: 16px;
+	cursor: pointer;	
+}
+
+.delete-task-button:hover {
+	background-color: darkred;
+  }
+
+.update-task-button {
+	height: 40px;
+	width: 40px;
+	background: limegreen;
+	border: none;
+	border-radius: 8px;
+	color: white;
+	padding: 12px 12px;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.update-task-button:hover {
+	background: green;
+}
   
 table {
 	border-collapse: collapse;
