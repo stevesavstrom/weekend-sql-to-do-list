@@ -67,9 +67,7 @@ function renderTasks(listOfTasks) {
                     <td>${item.status}</td>
                     <td>
                     <button class="delete-task-button" data-id=${item.id}><i class="fa fa-trash"></i></button>
-                    </td>
-					<td>
-                    <button class="update-task-button" data-id=${item.id}><i class="fa fa-check"></i></button>
+					<button class="update-task-button" data-id=${item.id}><i class="fa fa-check"></i></button>
                     </td>
                 </tr>`
             );
