@@ -36,7 +36,7 @@ pool.on('error', () => {
 app.get('/tasks', (req, res) => {
     let taskList = `
     SELECT * FROM "tasks"
-    ORDER BY "id" ASC;
+    ORDER BY "id" DESC;
     `;
     pool.query(taskList)
         .then((result) => {
