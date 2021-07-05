@@ -1,6 +1,6 @@
 -- Create a SQL database called `weekend-to-do-app`
 -- I used Postico as as a PostgreSQL client for Mac
--- Create a table called `tasks` using the command below.
+-- Create a table called `tasks` using the command below:
 
 CREATE TABLE tasks (
     "id" serial PRIMARY KEY,

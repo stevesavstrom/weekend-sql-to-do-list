@@ -21,7 +21,7 @@ Full stack "TO DO" list application that allows users to manage tasks. This proj
 
 ## Installation
 1. Create a SQL database named `weekend-to-do-app`.
-2. Open your text editoy and run `npm intall`.
+2. Open your text editor and run `npm install`.
 3. Run `npm init -y`in your terminal.
 4. Run `npm install express`in your terminal.
 5. Run `npm install pg`in your terminal.
@@ -30,7 +30,7 @@ Full stack "TO DO" list application that allows users to manage tasks. This proj
 Having trouble keeping track of all your tasks in your head? This app can help with that. Type in your task, click the `+` button and feel a sense of relief that you are taking a step toward organization and productivity. Keep adding tasks to your list until you are ready to get to work. As you complete tasks throughout the day, give yourself the satisfaction of marking them as done using the `check` button and watch them get crossed off the list. Added something by mistake? Simply click the red `trash` button to remove it from your last. Aren't lists great?
 
 ## Project Requirements
-[x] Front end experience that allows a user to create a Task.
+[x] Front end experience that allows a user to create a task.
 
 [x] When the Task is created, it should be stored inside of a database (SQL).
 
